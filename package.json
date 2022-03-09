@@ -1,8 +1,8 @@
 {
-  "name": "universial-links-infrastructure",
+  "name": "universal-links-infrastructure",
   "version": "0.1.0",
   "bin": {
-    "universial-links-infrastructure": "bin/universial-links-infrastructure.js"
+    "universal-links-infrastructure": "bin/universal-links-infrastructure.js"
   },
   "scripts": {
     "build": "tsc",
