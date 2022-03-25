@@ -63,7 +63,7 @@ export class UniversalLinksInfrastructureStack extends Stack {
         phases: {
           build: {
             commands: [
-               `aws s3 sync ./files s3://${props?.domain} --delete --content-type "application/json"`
+               `aws s3 sync ./files s3://${props?.domain} --delete"`
             ],
           },
         },
