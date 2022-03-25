@@ -31,14 +31,6 @@ test('should have S3 bucketpolicy', () => {
   });
 });
 
-test('should have CloudFrontOriginAccessIdentity', () => {
-  const app = new cdk.App();
-  const stack = new UniversalLinksInfrastructureStack(app, 'MyTestStack', testProps);
-  const template = Template.fromStack(stack);
-    
-  template.hasResourceProperties('AWS::CloudFront::CloudFrontOriginAccessIdentity', {});
-});
-
 test('should have CloudFront Distribution with context vars domain and arn to certificate', () => {
   const app = new cdk.App();
   const stack = new UniversalLinksInfrastructureStack(app, 'MyTestStack', testProps);

@@ -65,7 +65,8 @@ export class UniversalLinksInfrastructureStack extends Stack {
         phases: {
           build: {
             commands: [
-               `aws s3 sync ./files s3://${props?.domain} --delete`
+               `aws s3 sync ./files s3://${props?.domain} --delete`,
+               `aws s3 cp  --content-type "application/json" --metadata-directive REPLACE s3://${props?.domain}/.well-known/apple-app-site-association  s3://${props?.domain}/.well-known/apple-app-site-association `,
             ],
           },
         },
