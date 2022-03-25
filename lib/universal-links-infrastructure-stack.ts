@@ -23,7 +23,9 @@ export class UniversalLinksInfrastructureStack extends Stack {
 
     const universialLinksBucket = new S3.Bucket(this, 'UniversialLinksBucket', {
       publicReadAccess: true,
-      bucketName: props?.domain
+      bucketName: props?.domain,
+      websiteIndexDocument: 'index.html',
+      websiteErrorDocument: 'error.html'
     });
 
     const certificate = CertificateManager.Certificate.fromCertificateArn(this, 'UniversialLinksCertificate', props?.certificateArn as string);
@@ -63,7 +65,7 @@ export class UniversalLinksInfrastructureStack extends Stack {
         phases: {
           build: {
             commands: [
-               `aws s3 sync ./files s3://${props?.domain} --delete"`
+               `aws s3 sync ./files s3://${props?.domain} --delete`
             ],
           },
         },
