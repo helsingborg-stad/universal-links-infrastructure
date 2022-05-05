@@ -33,7 +33,8 @@ export class UniversalLinksInfrastructureStack extends Stack {
     new CloudFront.Distribution(this, 'UniversialLinksDistibution', {
       defaultBehavior: { 
         origin: new CloudfrontOrigins.S3Origin(universialLinksBucket),
-        cachePolicy: CloudFront.CachePolicy.CACHING_DISABLED
+        cachePolicy: CloudFront.CachePolicy.CACHING_DISABLED,
+        viewerProtocolPolicy: CloudFront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS
       },
       domainNames: [ props?.domain as string ],
       certificate: certificate,
